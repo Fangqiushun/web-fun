@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block page_content %}
+    <div class="page-header">
+        <h1>Hello,
+            {% if current_user.is_authenticated %}
+                {{ current_user.username|capitalize }}
+            {% else %}
+                Stranger
+            {% endif %}
+        </h1>
+        <p>你还没有确认注册哦!</p>
+        <a href="{{ url_for('auth.resend_confirmation') }}">
+            Click here to confirm your email!
+        </a>
+    </div>
+{% endblock %}
