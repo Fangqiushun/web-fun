@@ -3,16 +3,19 @@
 
 {% block page_content %}
     <div class="page-header">
-        <h1>Hello,
+        <h1>您好,
             {% if current_user.is_authenticated %}
                 {{ current_user.username|capitalize }}
             {% else %}
                 Stranger
             {% endif %}
         </h1>
-        <p>你还没有确认注册哦!</p>
-        <a href="{{ url_for('auth.resend_confirmation') }}">
-            Click here to confirm your email!
-        </a>
+        <h3>你还没有确认注册哦!</h3>
+        <p>
+            需要重新发送一封邮件?
+            <a href="{{ url_for('auth.resend_confirmation') }}">
+                点击这里!
+            </a>
+        </p>
     </div>
 {% endblock %}

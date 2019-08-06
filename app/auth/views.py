@@ -4,14 +4,16 @@
 # @Author  : Chilson
 # @Email   : qiushun_fang@126.com
 
-from flask import render_template, request, url_for, redirect, flash
+from flask import render_template, request, url_for, redirect, flash, current_app
 from flask_login import login_user, login_required, logout_user, current_user
+from logging import Logger
 from .forms import LoginForm, RegistrationForm
 from . import auth
 from ..models import User
 from ..email import send_email
-
 from .. import db
+
+log = Logger('Flasky')
 
 # 用户登录视图
 @auth.route('/login', methods=['GET', 'POST'])
@@ -48,7 +50,7 @@ def register():
         db.session.commit()
         token = user.generate_confirmation_token()
         send_email(
-            user.email,
+            current_app.config['FLASK_ADMIN'],
             'Confirm Your Account',
             'auth/email/confirm',
             user=user,
