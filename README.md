@@ -1,14 +1,9 @@
 web-fun
 ===========================
-一个基于flask的web后台
+一个基于flask的博客（《FlaskWeb开发基于python的web应用开发实战》实现）
 
 ## 功能介绍
 1. 账户管理
-2. 商品查询(启动爬虫脚本) [todo] 
-3. 单平台商品比价排名/销售量排名/评价排名 [todo] 
-4. 多平台总体数据排名(商品均价/总销量/评价均值) [todo] 
-5. 指定算法,自动推荐 [todo]
-6. 选取多算法,准确率比较 [todo] 
 
 ## 版本
 * 系统: ubuntu64位
@@ -43,8 +38,8 @@ web-fun
     │       ├── hello.html
     │       └── index.html
     ├── config.py           -- 配置文件
-    ├── data-dev.sqlite     -- 开发环境数据库
-    ├── data.sqlite         -- 线上环境数据库
+    ├── data-dev.sqlite     -- 开发环境数据库（启动开发环境的时候才会有）
+    ├── data.sqlite         -- 线上环境数据库（启动线上环境的时候才会有）
     ├── Pipfile             -- 依赖
     ├── Pipfile.lock        -- 依赖
     ├── README.md           -- 说明文档
@@ -66,6 +61,11 @@ pipenv install
 export FLASK_ENV=development       # <testing|development|production>
 export FLASK_APP=web-fun.py
 export MAIL_PASSWORD=****
+# 初始化数据库
+flask db init
+flask db migrate
+flask db upgrade
+# 启动应用
 flask run
 ```
 
