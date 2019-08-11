@@ -19,8 +19,8 @@ class Config:
         'true', 'on', '1']
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME', 'qiushun_fang@126.com')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
-    FLASK_MAIL_SUBJECT_PREFIX = '[Flasky]'
-    FLASK_MAIL_SENDER = 'Flask Admin <%s>' % MAIL_USERNAME
+    FLASK_MAIL_SUBJECT_PREFIX = '[web-fun]'
+    FLASK_MAIL_SENDER = 'Web-Fun Admin <%s>' % MAIL_USERNAME
     FLASK_ADMIN = os.environ.get('FLASK_ADMIN', MAIL_USERNAME)
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 

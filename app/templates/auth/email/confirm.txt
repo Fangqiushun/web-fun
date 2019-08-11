@@ -1,7 +1,7 @@
 Dear {{ user.username }},
-Welcome to Chilson's Flasky!
+Welcome to Chilson's Web-Fun!
 To confirm your account please click on the following link:
 {{ url_for('auth.confirm', token=token, _external=True) }}
 Sincerely,
-The Chilson's Flasky Team
+The Chilson's Web-Fun Team
 Note: replies to this email address are not monitored!

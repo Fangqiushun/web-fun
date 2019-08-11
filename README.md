@@ -59,7 +59,7 @@ pipenv install
 ## 启动
 ```bash
 export FLASK_ENV=development       # <testing|development|production>
-export FLASK_APP=web-fun.py
+export FLASK_APP=web_fun.py
 export MAIL_PASSWORD=****
 # 初始化数据库
 flask db init
