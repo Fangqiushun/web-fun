@@ -23,6 +23,7 @@ class Config:
     FLASK_MAIL_SENDER = 'Web-Fun Admin <%s>' % MAIL_USERNAME
     FLASK_ADMIN = os.environ.get('FLASK_ADMIN', MAIL_USERNAME)
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    FLASK_POSTS_PER_PAGE = 5
 
     @staticmethod
     def init_app(app):

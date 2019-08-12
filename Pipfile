@@ -5,6 +5,7 @@ verify_ssl = true
 
 [dev-packages]
 flask-docs = "*"
+faker = "*"
 
 [packages]
 flask = "*"
@@ -15,6 +16,9 @@ flask-sqlalchemy = "*"
 flask-migrate = "*"
 flask-mail = "*"
 flask-login = "*"
+flask-pagedown = "*"
+markdown = "*"
+bleach = "*"
 
 [requires]
 python_version = "3.6"
