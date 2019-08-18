@@ -3,7 +3,10 @@ web-fun
 一个基于flask的博客（《FlaskWeb开发基于python的web应用开发实战》实现）
 
 ## 功能介绍
-1. 账户管理
+* 账户管理
+* 写博客
+* 关注用户
+* 评论博客
 
 ## 版本
 * 系统: ubuntu64位
@@ -24,19 +27,7 @@ web-fun
     │   │   └── views.py    -- 视图
     │   ├── models.py       -- 数据结构
     │   ├── static          -- 静态文件
-    │   │   └── shit.ico
     │   └── templates       -- 模板
-    │       ├── 404.html
-    │       ├── 500.html
-    │       ├── auth
-    │       │   ├── email
-    │       │   │   └── confirm.txt
-    │       │   ├── login.html
-    │       │   ├── register.html
-    │       │   └── unconfirmed.html
-    │       ├── base.html
-    │       ├── hello.html
-    │       └── index.html
     ├── config.py           -- 配置文件
     ├── data-dev.sqlite     -- 开发环境数据库（启动开发环境的时候才会有）
     ├── data.sqlite         -- 线上环境数据库（启动线上环境的时候才会有）
@@ -44,10 +35,7 @@ web-fun
     ├── Pipfile.lock        -- 依赖
     ├── README.md           -- 说明文档
     ├── tests               -- 测试
-    │   ├── __init__.py
-    │   ├── test_basics.py
-    │   └── test_user_models.py
-    └── web-fun.py          -- 应用入口
+    └── web_fun.py          -- 应用入口
 
 
 ## 安装

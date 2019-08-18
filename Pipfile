@@ -6,6 +6,7 @@ verify_ssl = true
 [dev-packages]
 flask-docs = "*"
 faker = "*"
+httpie = "*"
 
 [packages]
 flask = "*"
@@ -19,6 +20,7 @@ flask-login = "*"
 flask-pagedown = "*"
 markdown = "*"
 bleach = "*"
+flask-httpauth = "*"
 
 [requires]
 python_version = "3.6"
