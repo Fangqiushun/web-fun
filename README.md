@@ -46,13 +46,21 @@ pipenv install
 
 ## 启动
 ```bash
-export FLASK_ENV=development       # <testing|development|production>
+# 设置app路径
 export FLASK_APP=web_fun.py
+
+# 跑单元测试并查看覆盖率
+flask test --coverage
+
+# 配置启动环境    
+export FLASK_ENV=development       # <development|production>
 export MAIL_PASSWORD=****
+
 # 初始化数据库
 flask db init
 flask db migrate
 flask db upgrade
+
 # 启动应用
 flask run
 ```

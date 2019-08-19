@@ -7,6 +7,8 @@ verify_ssl = true
 flask-docs = "*"
 faker = "*"
 httpie = "*"
+coverage = "*"
+selenium = "*"
 
 [packages]
 flask = "*"

@@ -109,3 +109,6 @@ migrations
 
 # idea
 .idea
+
+# tmp dir
+tmp/
