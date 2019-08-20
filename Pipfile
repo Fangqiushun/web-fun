@@ -9,6 +9,7 @@ faker = "*"
 httpie = "*"
 coverage = "*"
 selenium = "*"
+python-dotenv = "*"
 
 [packages]
 flask = "*"
@@ -23,6 +24,7 @@ flask-pagedown = "*"
 markdown = "*"
 bleach = "*"
 flask-httpauth = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.6"

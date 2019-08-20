@@ -26,6 +26,8 @@ class Config:
     FLASK_POSTS_PER_PAGE = 5
     FLASK_FOLLOWERS_PER_PAGE = 5
     FLASK_COMMENTS_PER_PAGE = 5
+    SQLALCHEMY_RECORD_QUERIES = True
+    FLASK_SLOW_DB_QUERY_TIME = 0.5
 
     @staticmethod
     def init_app(app):
@@ -37,6 +39,10 @@ class DevelopmentConfig(Config):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = os.environ.get(
         'DEV_DATABASE_URL') or 'sqlite:///' + os.path.join(basedir, 'data-dev.sqlite')
+
+    @classmethod
+    def init_app(cls, app):
+        pass
 
 
 class TestingConfig(Config):
@@ -51,6 +57,17 @@ class ProductionConfig(Config):
     """生产环境配置"""
     SQLALCHEMY_DATABASE_URI = os.environ.get(
         'PRO_DATABASE_URL') or 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
+
+    @classmethod
+    def init_app(cls, app):
+        # 配置日志输出到文件
+        import logging
+        file_handler = logging.FileHandler('tmp/web_fun.log')
+        logging_format = logging.Formatter(
+            '[%(asctime)s] [%(levelname)s] %(filename)s:%(funcName)s on line %(lineno)s - %(message)s')
+        file_handler.setLevel(logging.INFO)
+        file_handler.setFormatter(logging_format)
+        app.logger.addHandler(file_handler)
 
 
 config = {

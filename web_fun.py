@@ -5,6 +5,8 @@
 # @Email   : qiushun_fang@126.com
 
 import os
+from flask_migrate import upgrade
+from app.models import Role, User
 
 COV = None
 if os.environ.get('FLASK_COVERAGE'):
@@ -59,3 +61,26 @@ def test(coverage, test_names):
         COV.html_report(directory=covdir)
         print('HTML version: file://%s/index.html' % covdir)
         COV.erase()
+
+
+@app.cli.command()
+@click.option('--length', default=25, help='Number of functions to include in the profiler report.')
+@click.option('--profile-dir', default=None, help='Directory where profiler data files are saved.')
+def profile(length, profile_dir):
+    """在代码分析器上启动应用"""
+    from werkzeug.middleware.profiler import ProfilerMiddleware
+    app.wsgi_app = ProfilerMiddleware(app.wsgi_app, restrictions=[length], profile_dir=profile_dir)
+    app.run(debug=False)
+
+
+@app.cli.command()
+def deploy():
+    """Run deployment tasks."""
+    # 把数据库迁移到最新修订版本
+    upgrade()
+
+    # 创建或更新用户角色
+    Role.insert_roles()
+
+    # 确保所有用户都关注了他们自己
+    User.add_self_follows()
